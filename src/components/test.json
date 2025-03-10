@@ -1,0 +1,43 @@
+{
+    "type": "Folder",
+    "name": "root",
+    "child": [
+        {
+            "type": "Folder",
+            "name": "Documents",
+            "child": [
+                {
+                    "type": "Text",
+                    "name": "1.doc",
+                    "child": "none"
+                },
+                {
+                    "type": "Text",
+                    "name": "2.xls",
+                    "child": "none"
+                },      
+                {
+                    "type": "Text",
+                    "name": "3.pdf",
+                    "child": "none"
+                }          
+            ]
+        },
+        {
+            "type": "Folder",
+            "name": "Media",
+            "child": [
+                {
+                    "type": "Audio",
+                    "name": "music.mp3",
+                    "child": "none"
+                }
+            ]
+        },
+        {
+            "type": "Video",
+            "name": "film.mkv",
+            "child": "none"
+        }
+    ]
+}
