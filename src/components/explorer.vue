@@ -19,9 +19,7 @@
             <div class="modal" v-if="isVisibleModalFile">
                 <div class="modal-content">
                     <p>Загрузите файл</p>
-                    <div class="drag-n-drop-placeholder">
-                        <DragContainer />
-                    </div>
+                    <DragContainer @fileDrop="uploadFile"/>
                     <div class="btn-placeholder">
                         <button @click="isVisibleModalFile=false">Закрыть</button>
                         <button>Загрузить</button>
@@ -94,8 +92,17 @@ export default {
             }
             this.isVisibleModalFolder=false;
         },
-        async uploadFile(){
-
+        async uploadFile(file){
+            this.isVisibleModalFile=false;
+            let name = file.name;
+            let reader = new FileReader();
+            reader.onload = () => {  
+                console.log(reader.result); // выводим содержимое
+                // для разделения, если выбрано несколько файлов
+                console.log("==============================");
+            };  
+            let content = reader.readAsArrayBuffer(file);
+            // STOMP protocol and send filename and byte content
         },
         async toFolder(action, folder){ // переход в нужную папку
             this.currentPath = this.currentPath + "/" + folder;
@@ -146,9 +153,9 @@ export default {
 }
 .modal-content {
   background: white;
-  padding: 20px;
+  /* padding: 20px; */
   border-radius: 5px;
-  width: 300px;
+   width: 512px; 
   position: relative;
 }
 

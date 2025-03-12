@@ -34,6 +34,9 @@
     methods: {
       onChange() {
         this.files.push(...this.$refs.file.files);
+        this.files.forEach((item) => {
+          this.$emit("fileDrop", item);
+        });
       },
       dragover(e) {
         e.preventDefault();
@@ -54,9 +57,9 @@
 <style scoped>
 .main {
     display: flex;
-    flex-grow: 1;
     align-items: center;
-    height: 100vh;
+    height: 512px;
+    width:512px;
     justify-content: center;
     text-align: center;
 }
